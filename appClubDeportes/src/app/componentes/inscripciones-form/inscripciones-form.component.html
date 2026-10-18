@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-center"> <!-- Formulario -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form #inscripcionForm="ngForm" (ngSubmit)="guardarInscripcion()"> <!-- Select para Miembros -->
+            <div class="mb-3"> <select name="idMiembros" [(ngModel)]="inscripcion.idMiembros" class="form-control"
+                required>
+                <option value="" disabled selected>Seleccione un miembro</option>
+                <option *ngFor="let miembro of miembros" [value]="miembro.idMiembros"> {{ miembro.nombreMiembros }}
+                </option>
+              </select> 
+            </div> <!-- Select para Disciplinas -->
+              <div class="mb-3"> <select name="idDisciplinas" [(ngModel)]="inscripcion.idDisciplinas" class="form-control"
+                required>
+                <option value="" disabled selected>Seleccione una disciplina</option>
+                <option *ngFor="let disciplina of disciplinas" [value]="disciplina.idDisciplinas"> {{
+                  disciplina.nombreDisciplina }} </option>
+              </select> </div>
+            <div class="mb-3"> <input type="date" name="fechaInscripcion" [(ngModel)]="inscripcion.fechaInscripcion"
+                class="form-control" required /> </div> <button type="submit" class="btn btn-success"
+              [disabled]="!inscripcionForm.form.valid"> {{ edit ? 'Actualizar Inscripción' : 'Agregar Inscripción' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div> <!-- Vista previa -->
+    <div class="col-md-6 mt-4 mt-md-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4>{{ nombreMiembroSeleccionado }}</h4>
+          <p class="mt-2"> Disciplina: {{ nombreDisciplinaSeleccionada }} </p>
+          <p class="mt-2"> Fecha de Inscripción: {{ inscripcion.fechaInscripcion | date:'dd/MM/yyyy' || 'No
+            especificada' }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

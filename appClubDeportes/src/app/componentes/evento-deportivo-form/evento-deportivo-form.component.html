@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Formulario -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form #eventoForm="ngForm" (ngSubmit)="guardarEvento()">
+            <!-- Nombre del evento -->
+            <div class="mb-3">
+              <input type="text" name="nombreEvento" [(ngModel)]="evento.nombreEvento" class="form-control"
+                placeholder="Nombre del evento" required />
+            </div>
+
+            <!-- Fecha del evento -->
+            <div class="mb-3">
+              <input type="date" name="fechaEvento" [(ngModel)]="evento.fechaEvento" class="form-control"
+                required />
+            </div>
+
+            <!-- Hora del evento -->
+            <div class="mb-3">
+              <input type="time" name="horaEvento" [(ngModel)]="evento.horaEvento" class="form-control"
+                required />
+            </div>
+
+            <!-- Lugar -->
+            <div class="mb-3">
+              <input type="text" name="lugar" [(ngModel)]="evento.lugar" class="form-control"
+                placeholder="Lugar del evento" required />
+            </div>
+
+            <!-- Descripción -->
+            <div class="mb-3">
+              <textarea name="descripcion" [(ngModel)]="evento.descripcion" class="form-control"
+                placeholder="Descripción del evento" rows="3"></textarea>
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn btn-primary" [disabled]="!eventoForm.form.valid">
+              {{ edit ? 'Actualizar Evento' : 'Crear Evento' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vista previa -->
+    <div class="col-md-6 mt-4 mt-md-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <h4>{{ evento.nombreEvento || 'Sin nombre' }}</h4>
+          <p class="mt-2">  Fecha: {{ evento.fechaEvento | date:'dd/MM/yyyy' || 'No especificada' }} </p>
+          <p class="mt-2">  Hora: {{ evento.horaEvento || 'No especificada' }} </p>
+          <p class="mt-2">  Lugar: {{ evento.lugar || 'Sin lugar definido' }} </p>
+          <p class="mt-2">  {{ evento.descripcion || 'Sin descripción' }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

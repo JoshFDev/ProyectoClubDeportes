@@ -1,0 +1,157 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <i class="fas fa-running me-2"></i>SportManager
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <!-- Miembros -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="miembrosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-users"></i> Miembros
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="miembrosDropdown">
+            <li><a class="dropdown-item" href="/miembros"><i class="fas fa-list me-2"></i>Ver Miembros</a></li>
+            <li><a class="dropdown-item" href="/miembros/agregar"><i class="fas fa-plus me-2"></i>Agregar Miembro</a></li>
+          </ul>
+        </li>
+        
+        <!-- Disciplinas -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="disciplinasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-dumbbell"></i> Disciplinas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="disciplinasDropdown">
+            <li><a class="dropdown-item" href="/disciplinas"><i class="fas fa-list me-2"></i>Ver Disciplinas</a></li>
+            <li><a class="dropdown-item" href="/disciplinas/agregar"><i class="fas fa-plus me-2"></i>Agregar Disciplina</a></li>
+          </ul>
+        </li>
+        
+        <!-- Entrenadores -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="entrenadoresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-tie"></i> Entrenadores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="entrenadoresDropdown">
+            <li><a class="dropdown-item" href="/entrenadores"><i class="fas fa-list me-2"></i>Ver Entrenadores</a></li>
+            <li><a class="dropdown-item" href="/entrenadores/agregar"><i class="fas fa-plus me-2"></i>Agregar Entrenador</a></li>
+          </ul>
+        </li>
+        
+        <!-- Eventos Deportivos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="eventosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-calendar-alt"></i> Eventos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="eventosDropdown">
+            <li><a class="dropdown-item" href="/eventos"><i class="fas fa-list me-2"></i>Ver Eventos</a></li>
+            <li><a class="dropdown-item" href="/eventos/agregar"><i class="fas fa-plus me-2"></i>Agregar Evento</a></li>
+          </ul>
+        </li>
+        
+        <!-- Inscripciones -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="inscripcionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-list-alt"></i> inscripciones
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="inscripcionesDropdown">
+            <li><a class="dropdown-item" href="/inscripciones"><i class="fas fa-list me-2"></i>Ver inscripciones</a></li>
+            <li><a class="dropdown-item" href="/inscripciones/agregar"><i class="fas fa-plus me-2"></i>Agregar inscripcion</a></li>
+          </ul>
+        </li>
+        
+        <!-- Miembros Evento Deportivo -->
+        <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="miembroseventodeportivoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-user-check"></i> Participantes
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="miembroseventodeportivoDropdown">
+    <li><a class="dropdown-item" href="/miembroseventodeportivo"><i class="fas fa-list me-2"></i>Ver Participantes</a></li>
+    <li><a class="dropdown-item" href="/miembroseventodeportivo/agregar"><i class="fas fa-plus me-2"></i>Agregar Participantes</a></li>
+  </ul>
+</li>
+
+      </ul>
+      
+      <!-- Menú de usuario -->
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-1"></i> Mi Cuenta
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Perfil</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%) !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 0.8rem 0;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 500;
+    margin: 0 3px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    padding: 8px 15px !important;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: white !important;
+    background-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+  
+  .nav-link i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+  }
+  
+  .dropdown-item {
+    padding: 8px 20px;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .dropdown-item i {
+    width: 18px;
+  }
+</style>

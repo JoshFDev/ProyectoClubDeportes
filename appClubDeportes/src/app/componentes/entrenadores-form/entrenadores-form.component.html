@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- Formulario del Entrenador -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <input type="text" name="idEntrenadores" [(ngModel)]="entrenador.idEntrenadores"
+                    placeholder="ID del Entrenador:" class="form-control" autofocus>
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="nombreEntrenador" [(ngModel)]="entrenador.nombreEntrenador"
+                    placeholder="Nombre:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="apellidoPaterno" [(ngModel)]="entrenador.apellidoPaterno"
+                    placeholder="Apellido Paterno:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="apellidoMaterno" [(ngModel)]="entrenador.apellidoMaterno"
+                    placeholder="Apellido Materno:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <select name="sexo" [(ngModel)]="entrenador.sexo" class="form-control">
+                    <option value="" disabled selected>Selecciona el sexo</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <input type="date" name="fechaNacimiento" [(ngModel)]="entrenador.fechaNacimiento"
+                    class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="especialidad" [(ngModel)]="entrenador.especialidad"
+                    placeholder="Especialidad:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="email" name="correo" [(ngModel)]="entrenador.correo"
+                    placeholder="Correo Electrónico:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="tel" name="telefono" [(ngModel)]="entrenador.telefono"
+                    placeholder="Teléfono:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="direccion" [(ngModel)]="entrenador.direccion"
+                    placeholder="Dirección:" class="form-control">
+                </div>
+                <!-- Select para Disciplinas -->
+                <div class="mb-3"> <select name="idDisciplinas" [(ngModel)]="entrenador.idDisciplinas" class="form-control"
+                required>
+                <option value="" disabled selected>Seleccione una disciplina</option>
+                <option *ngFor="let disciplina of disciplinas" [value]="disciplina.idDisciplinas"> {{
+                  disciplina.nombreDisciplina }} </option>
+              </select> </div>
+
+                <div class="mb-3">
+                  <input type="url" name="imagen" [(ngModel)]="entrenador.imagen"
+                    placeholder="URL de Imagen:" class="form-control">
+                </div>
+                <button type="button" class="btn btn-success"
+                  (click)="edit ? actualizaEntrenador() : addEntrenador()">
+                  {{ edit ? 'Actualizar Entrenador' : 'Agregar Entrenador' }}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vista Previa del Entrenador -->
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="card">
+            <div class="card-body text-center">
+              <img [src]="entrenador.imagen || 'https://via.placeholder.com/500x500?text=Sin+imagen'"
+                class="img-fluid rounded mb-3 border" style="max-height: 500px; object-fit: cover;">
+              <h4>
+                {{ entrenador.idEntrenadores ? entrenador.idEntrenadores + ' - ' : '' }}
+                {{ entrenador.nombreEntrenador || 'Nombre del Entrenador' }}
+                {{ entrenador.apellidoPaterno || '' }}
+                {{ entrenador.apellidoMaterno || '' }}
+              </h4>
+              <p class="mt-2">Sexo: {{ entrenador.sexo || 'No especificado' }}</p>
+              <p class="mt-2">Fecha de Nacimiento: {{ entrenador.fechaNacimiento || 'No especificada' }}</p>
+              <p class="mt-2">Especialidad: {{ entrenador.especialidad || 'No especificada' }}</p>
+              <p class="mt-2">Dirección: {{ entrenador.direccion || 'No especificada' }}</p>
+              <p class="mt-2">Correo: {{ entrenador.correo || 'No especificado' }}</p>
+              <p class="mt-2">Teléfono: {{ entrenador.telefono || 'No especificado' }}</p>
+              <p class="mt-2">ID Disciplina: {{ nombreDisciplinaSeleccionada }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

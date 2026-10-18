@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- Formulario -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <!-- Campo: ID del Miembro -->
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    name="Miembros_idMiembros"
+                    [(ngModel)]="miembroEvento.Miembros_idMiembros"
+                    placeholder="ID del Miembro"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <!-- Campo: ID del Evento Deportivo -->
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    name="EventoDeportivo_idEventoDeportivo"
+                    [(ngModel)]="miembroEvento.EventoDeportivo_idEventoDeportivo"
+                    placeholder="ID del Evento Deportivo"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <!-- Botón: Guardar / Actualizar -->
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  (click)="edit ? updateMiembroEvento() : addMiembroEvento()"
+                >
+                  {{ edit ? 'Actualizar Registro' : 'Agregar Registro' }}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vista previa / resumen del registro -->
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="card">
+            <div class="card-body text-center">
+              <h4>
+                {{ miembroEvento.Miembros_idMiembros || 'ID del Miembro' }} -
+                {{ miembroEvento.EventoDeportivo_idEventoDeportivo || 'ID del Evento' }}
+              </h4>
+              <p class="mt-2">
+                <strong>Miembro ID:</strong> {{ miembroEvento.Miembros_idMiembros || 'No especificado' }}
+              </p>
+              <p class="mt-2">
+                <strong>Evento Deportivo ID:</strong> {{ miembroEvento.EventoDeportivo_idEventoDeportivo || 'No especificado' }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

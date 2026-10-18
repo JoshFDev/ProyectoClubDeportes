@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <input type="text" name="idDisciplinas" [(ngModel)]="disciplina.idDisciplinas" 
+                         placeholder="ID de la Disciplina:" class="form-control" autofocus>
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="nombreDisciplina" [(ngModel)]="disciplina.nombreDisciplina" 
+                         placeholder="Nombre de la Disciplina:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="nivel" [(ngModel)]="disciplina.nivel" 
+                         placeholder="Nivel:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="url" name="imagen" [(ngModel)]="disciplina.imagen" 
+                         placeholder="URL de Imagen:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <textarea name="descripcion" [(ngModel)]="disciplina.descripcion" 
+                            placeholder="Descripción:" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                  <input type="number" name="duracion" [(ngModel)]="disciplina.duracion" 
+                         placeholder="Duración (en horas):" class="form-control" min="0">
+                </div>
+                <div class="mb-3">
+                  <input type="number" step="0.01" name="costo" [(ngModel)]="disciplina.costo" 
+                         placeholder="Costo:" class="form-control" min="0">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="categoria" [(ngModel)]="disciplina.categoria" 
+                         placeholder="Categoría:" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="ubicacion" [(ngModel)]="disciplina.ubicacion" 
+                         placeholder="Ubicación:" class="form-control">
+                </div>
+                <button type="button" class="btn btn-success" 
+                        (click)="edit ? actualizaDisciplina() : addDisciplina()">
+                  {{ edit ? 'Actualizar Disciplina' : 'Agregar Disciplina' }}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="card">
+            <div class="card-body text-center">
+              <img [src]="disciplina.imagen || 'https://via.placeholder.com/500x500?text=Sin+imagen'" 
+                   class="img-fluid rounded mb-3 border" style="max-height: 500px; object-fit: cover;">
+              <h4>
+                {{ disciplina.idDisciplinas ? disciplina.idDisciplinas + ' - ' : '' }}
+                {{ disciplina.nombreDisciplina || 'Nombre de la Disciplina' }}
+              </h4>
+              <p class="mt-2">Nivel: {{ disciplina.nivel || 'No especificado' }}</p>
+              <p class="mt-2">Descripción: {{ disciplina.descripcion || 'No especificada' }}</p>
+              <p class="mt-2">Duración: {{ disciplina.duracion || 'No especificada' }} horas</p>
+              <p class="mt-2">Costo: {{ disciplina.costo !== undefined ? ('$' + disciplina.costo) : 'No especificado' }}</p>
+              <p class="mt-2">Categoría: {{ disciplina.categoria || 'No especificada' }}</p>
+              <p class="mt-2">Ubicación: {{ disciplina.ubicacion || 'No especificada' }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

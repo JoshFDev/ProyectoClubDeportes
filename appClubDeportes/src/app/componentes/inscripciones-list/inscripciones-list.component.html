@@ -1,0 +1,61 @@
+<div class="container my-4">
+  <h2 class="text-center mb-4 text-primary">Nuestras Inscripciones</h2>
+
+  <!-- Búsqueda de inscripciones -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <div class="input-group shadow-sm">
+        <span class="input-group-text bg-secondary text-white">
+          <i class="fas fa-search"></i>
+        </span>
+        <input type="text" class="form-control"
+               placeholder="Buscar inscripción..."
+               [(ngModel)]="terminoBusqueda"
+               (input)="filtrarInscripciones()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay resultados -->
+  <div *ngIf="inscripcionesFiltradas.length === 0 && terminoBusqueda"
+       class="text-center text-muted my-4">
+    <i class="fas fa-calendar-times fa-2x mb-2"></i>
+    <p class="fw-semibold">Inscripción no encontrada</p>
+  </div>
+
+  <!-- Lista de inscripciones -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let ins of inscripcionesFiltradas">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Inscripción #{{ ins.idInscripciones }}</h5>
+          <button class="btn btn-sm btn-outline-light"
+                  (click)="borrarInscripcion(ins.idInscripciones)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+
+        <div class="card-body d-flex flex-column">
+          <div class="mb-2">
+            <p class="mb-1"><strong>Miembro ID:</strong> {{ ins.idMiembros || 'No especificado' }}</p>
+            <p class="mb-1"><strong>Disciplina ID:</strong> {{ ins.idDisciplinas || 'No especificado' }}</p>
+          </div>
+
+          <div class="mt-auto">
+            <small class="text-muted d-block mb-2">
+              <i class="far fa-calendar-alt me-1"></i>
+              Fecha de inscripción: 
+              {{ ins.fechaInscripcion ? (ins.fechaInscripcion | date:'dd/MM/yyyy') : 'No especificada' }}
+            </small>
+            <div class="d-grid">
+              <a class="btn btn-outline-primary"
+                 [routerLink]="['/inscripciones/actualizar', ins.idInscripciones]">
+                <i class="fas fa-edit me-1"></i> Editar Inscripción
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
